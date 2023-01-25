@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="base.definition"
+                template="/WEB-INF/views/jsp/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="mainheader" value="/WEB-INF/views/fragments/mainheader.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/views/jsp/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/jsp/menu.jsp" />
+        <put-attribute name="adminmenu" value=""/>
+        <put-attribute name="submenu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value=""/>
+        <put-attribute name="mainfooter" value="/WEB-INF/views/fragments/mainfooter.jsp" />
+    </definition>
+ 
+
+    <!-- ADMIN MENU-->
+    <definition name="admin.base.definition"
+                template="/WEB-INF/views/admin/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="mainheader" value="/WEB-INF/views/fragments/mainheader.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/views/admin/header.jsp"/>
+        <put-attribute name="adminmenu" value="/WEB-INF/views/admin/adminmenu.jsp"/>
+        <put-attribute name="submenu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value=""/>
+        <put-attribute name="mainfooter" value="/WEB-INF/views/fragments/mainfooter.jsp"/>
+    </definition>
+
+
+    <!-- SUBCONTRACTOR MENU-->
+    <definition name="usersubcontractor.base.definition"
+                template="/WEB-INF/views/usersubcontractor/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="mainheader" value="/WEB-INF/views/fragments/mainheader.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/views/usersubcontractor/header.jsp"/>
+        <put-attribute name="subcontractormenu" value="/WEB-INF/views/usersubcontractor/subcontractormenu.jsp"/>
+        <put-attribute name="submenu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value=""/>
+        <put-attribute name="mainfooter" value="/WEB-INF/views/fragments/mainfooter.jsp"/>
+    </definition>
+    
+    
+    <!-- PAYROLL MENU-->
+    <definition name="userpayroll.base.definition"
+                template="/WEB-INF/views/userpayroll/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="mainheader" value="/WEB-INF/views/fragments/mainheader.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/views/userpayroll/header.jsp"/>
+        <put-attribute name="payrollmenu" value="/WEB-INF/views/userpayroll/payrollmenu.jsp"/>
+        <put-attribute name="submenu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value=""/>
+        <put-attribute name="mainfooter" value="/WEB-INF/views/fragments/mainfooter.jsp"/>
+    </definition>
+    
+     
+    <definition name="welcome.def" extends="base.definition">
+        <put-attribute name="title" value="Pagina de pornire" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/welcome.jsp" />
+    </definition>
+    <definition name="showlogin.def" extends="base.definition">
+        <put-attribute name="title" value="Login Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
+    </definition>
+    <definition name="login.def" extends="base.definition">
+        <put-attribute name="title" value="Login Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
+    </definition>
+    <definition name="logout.def" extends="base.definition">
+        <put-attribute name="title" value="Logout Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
+    </definition>
+    <definition name="error.def" extends="base.definition">
+        <put-attribute name="title" value="Error Page" />
+        <put-attribute name="body" value="/WEB-INF/views/jsp/error.jsp" />
+    </definition>
+
+        
+        
+    <!--USER ADMIN-->
+     
+    <!--NWRoles-->
+    
+    <definition name="admin.home.def" extends="admin.base.definition">
+        <put-attribute name="title" value=" Admin Home Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/home.jsp" />
+        </definition>
+    
+    <definition name="admin.nwroles.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="NWRoles List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/nwroles/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/nwroles/list.jsp" />
+    </definition>
+    <definition name="admin.nwroles.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="NWRoles View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/nwroles/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/nwroles/show.jsp" />
+    </definition>
+    <definition name="admin.nwroles.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="NWRoles Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/nwroles/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/nwroles/edit.jsp" />
+    </definition>
+        
+    <!--NWUsers-->
+ 
+    
+    <definition name="admin.nwusers.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="NWUsers List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/nwusers/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/nwusers/list.jsp" />
+    </definition>
+    <definition name="admin.nwusers.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="NWUsers View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/nwusers/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/nwusers/show.jsp" />
+    </definition>
+    <definition name="admin.nwusers.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="NWUsers Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/nwusers/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/nwusers/edit.jsp" />
+    </definition>
+        
+        
+    <!--Subcontractors-->
+    <definition name="admin.subcontractors.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Subcontractors List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/subcontractors/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/subcontractors/list.jsp" />
+    </definition>
+    <definition name="admin.subcontractors.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Subcontractors View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/subcontractors/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/subcontractors/show.jsp" />
+    </definition>
+    <definition name="admin.subcontractors.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Subcontractors Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/subcontractors/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/subcontractors/edit.jsp" />
+    </definition>
+    
+    
+    <!--Companies-->
+    <definition name="admin.companies.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Companies List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/companies/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/companies/list.jsp" />
+    </definition>
+    <definition name="admin.companies.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Companies View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/companies/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/companies/show.jsp" />
+    </definition>
+    <definition name="admin.companies.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Companies Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/companies/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/companies/edit.jsp" />
+    </definition>
+    
+    
+    <!--Contracts-->
+    <definition name="admin.contracts.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Contracts List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/contracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/contracts/list.jsp" />
+    </definition>
+    <definition name="admin.contracts.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Contracts View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/contracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/contracts/show.jsp" />
+    </definition>
+    <definition name="admin.contracts.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Contracts Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/contracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/contracts/edit.jsp" />
+    </definition>
+    
+    
+    
+    <!--Portofolio-->
+    <definition name="admin.portofolio.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Portofolio List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/portofolio/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/portofolio/list.jsp" />
+    </definition>
+    <definition name="admin.portofolio.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Portofolio View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/portofolio/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/portofolio/show.jsp" />
+    </definition>
+    <definition name="admin.portofolio.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Portofolio Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/portofolio/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/portofolio/edit.jsp" />
+    </definition>
+    
+    
+    
+    <!--Payroll-->
+    <definition name="admin.payroll.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Payroll List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/payroll/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/payroll/list.jsp" />
+    </definition>
+    <definition name="admin.payroll.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Payroll View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/payroll/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/payroll/show.jsp" />
+    </definition>
+    <definition name="admin.payroll.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Payroll Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/payroll/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/payroll/edit.jsp" />
+    </definition>
+    
+    
+    <!--PersonalDetails-->
+    <definition name="admin.personaldetails.list.def" extends="admin.base.definition">
+        <put-attribute name="title" value="Personal Details Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/personaldetails/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/personaldetails/list.jsp" />
+    </definition>
+    <definition name="admin.personaldetails.showView.def" extends="admin.base.definition">
+        <put-attribute name="title" value="PersonalDetails View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/personaldetails/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/personaldetails/show.jsp" />
+    </definition>
+    <definition name="admin.personaldetails.showEdit.def" extends="admin.base.definition">
+        <put-attribute name="title" value="PersonalDetails Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/admin/personaldetails/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/personaldetails/edit.jsp" />
+    </definition>
+    
+    
+    
+    <!--USER SUBCONTRACTOR-->
+    
+    
+    <definition name="usersubcontractor.home.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontractor Home Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/home.jsp" />
+    </definition>
+    
+    
+    <!--Subcontractor Personal Details-->
+    <definition name="subcontrpersonaldetails.list.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value="  Subcontractor Personal Details Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrpersonaldetails/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrpersonaldetails/list.jsp" />
+    </definition>
+    <definition name="subcontrpersonaldetails.showView.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontractor Personal Details View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrpersonaldetails/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrpersonaldetails/show.jsp" />
+    </definition>
+    <definition name="subcontrpersonaldetails.showEdit.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontractor Personal Details Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrpersonaldetails/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrpersonaldetails/edit.jsp" />
+    </definition>
+    
+    
+    <!--Subcontractor Upload Documents-->
+    <definition name="subcontruploaddocuments.list.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Documents List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/list.jsp" />
+    </definition>
+    <definition name="subcontruploaddocuments.showView.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Documents View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/show.jsp" />
+    </definition>
+    <definition name="subcontruploaddocuments.showEdit.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Documents Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/edit.jsp" />
+    </definition>
+    
+      
+    <!--Subcontractor Portofolio-->
+    <definition name="subcontrportofolio.list.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontrator Portofolio List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrportofolio/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrportofolio/list.jsp" />
+    </definition>
+    <definition name="subcontrportofolio.showView.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontrator Portofolio View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrportofolio/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrportofolio/show.jsp" />
+    </definition>
+    <definition name="subcontrportofolio.showEdit.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value="  Subcontrator Portofolio Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrportofolio/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrportofolio/edit.jsp" />
+    </definition>
+    
+    <!--Subcontractor Contracts-->
+    <definition name="subcontrcontracts.list.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontrator Contracts List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrcontracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrcontracts/list.jsp" />
+    </definition>
+    <definition name="subcontrcontracts.showView.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value=" Subcontrator  Contracts  View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrcontracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrcontracts/show.jsp" />
+    </definition>
+    <definition name="subcontrcontracts.showEdit.def" extends="usersubcontractor.base.definition">
+        <put-attribute name="title" value="  Subcontrator  Contracts  Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontrcontracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontrcontracts/edit.jsp" />
+    </definition>
+    
+        
+    <!--PAYROLL-->
+                  
+                                   
+                                                    
+    <definition name="userpayroll.home.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll Home Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/home.jsp" />
+    </definition>
+                                                                                      
+                                                                                                                        
+    <!--Payroll Subcontractors-->     
+    <definition name="payrollsubcontractors.list.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value="  Payroll Subcontrator  List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollsubcontractors/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollsubcontractors/list.jsp" />
+    </definition>
+    <definition name="payrollsubcontractors.showView.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll Subcontrator  View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollsubcontractors/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollsubcontractors/show.jsp" />
+    </definition>
+    <definition name="payrollsubcontractors.showEdit.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll  Subcontrator  Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollsubcontractors/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollsubcontractors/edit.jsp" />
+    </definition>
+    
+    
+    <!--Payroll Companies-->
+    <definition name="payrollcompanies.list.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value="  Payroll Companies  List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollcompanies/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollcompanies/list.jsp" />
+    </definition>
+    <definition name="payrollcompanies.showView.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll Companies View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollcompanies/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollcompanies/show.jsp" />
+    </definition>
+    <definition name="payrollcompanies.showEdit.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll  Companies  Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollcompanies/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollcompanies/edit.jsp" />
+    </definition>
+    
+    
+    <!--Payroll Contracts-->
+    <definition name="payrollcontracts.list.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value="  Payroll Contracts  List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollcontracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollcontracts/list.jsp" />
+    </definition>
+    <definition name="payrollcontracts.showView.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll Contracts View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollcontracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollcontracts/show.jsp" />
+    </definition>
+    <definition name="payrollcontracts.showEdit.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll  Contracts  Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollcontracts/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollcontracts/edit.jsp" />
+    </definition>
+    
+    <!--Payroll Payments-->
+    <definition name="payrollpayments.list.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value="  Payroll Payments  List Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollpayments/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollpayments/list.jsp" />
+    </definition>
+    <definition name="payrollpayments.showView.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll Payments View Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollpayments/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollpayments/show.jsp" />
+    </definition>
+    <definition name="payrollpayments.showEdit.def" extends="userpayroll.base.definition">
+        <put-attribute name="title" value=" Payroll  Payments  Edit Page" />
+        <put-attribute name="submenu" value="/WEB-INF/views/userpayroll/payrollpayments/submenu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/userpayroll/payrollpayments/edit.jsp" />
+    </definition>
+         
+</tiles-definitions>

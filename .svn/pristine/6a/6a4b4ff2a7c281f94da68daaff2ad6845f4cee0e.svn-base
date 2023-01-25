@@ -1,0 +1,68 @@
+
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.admin;
+
+import com.iucosoft.nighthawk_interteh_service.entities.Employercompany;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.EmployercompanyServiceIntf;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+@RequestMapping("/admin/companies")
+public class CompaniesController {
+    
+    
+     @Autowired
+     EmployercompanyServiceIntf employerCompanyService;
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("admin.companies.list.def");
+        try {
+            List<Employercompany> lista = employerCompanyService.list();
+            for (Employercompany companies : lista) {
+                System.out.println(companies);
+
+            }
+
+           
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+
+    @RequestMapping(value = "/showView", method = RequestMethod.GET)
+    String showView() {
+
+     
+        return "admin.companies.showView.def";
+    }
+
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        return "admin.companies.showEdit.def";
+    }
+
+    //Modifies an role
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        return "admin.companies.edit.def";
+    }
+
+}
+    
+

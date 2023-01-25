@@ -1,0 +1,34 @@
+
+package com.iucosoft.nighthawk_interteh_service.serviciispring.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.dao.GenericDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.dao.concrete.RoleDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.entities.NWRole;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.RoleServiceIntf;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.impl.GenericServiceAbstractImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author 
+ */
+@Service("roleDao")
+public class RoleServiceImpl 
+        extends GenericServiceAbstractImpl<NWRole, Integer> 
+                 implements RoleServiceIntf{
+    
+    
+    
+    @Autowired
+    RoleDaoIntf roleDao;
+
+    @Autowired
+    public RoleServiceImpl(@Qualifier("roleDao") GenericDaoIntf genericDao) {
+        super(genericDao);
+        this.roleDao = (RoleDaoIntf) genericDao;
+    }
+    
+   
+}

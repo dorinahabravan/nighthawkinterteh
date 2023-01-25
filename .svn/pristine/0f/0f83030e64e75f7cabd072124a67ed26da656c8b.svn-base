@@ -1,0 +1,64 @@
+
+
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.usersubcontractor;
+
+import com.iucosoft.nighthawk_interteh_service.entities.Filedocument;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.FiledocumentServiceIntf;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+@RequestMapping("/usersubcontractor/subcontruploaddocuments")
+public class SubcontrUploadDocumentsController {
+
+    @Autowired
+//    @Qualifier("nwroleService")
+    FiledocumentServiceIntf fileDocumentService;
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("usersubcontractor.subcontruploaddocuments.list.def");
+        try {
+            List<Filedocument> lista = fileDocumentService.list();
+            for (Filedocument fileDocument : lista) {
+                System.out.println(fileDocument);
+
+            }
+
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+
+    @RequestMapping(value = "/showView", method = RequestMethod.GET)
+    String showView() {
+
+        return "usersubcontractor.subcontruploaddocuments.showView.def";
+    }
+
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        return "usersubcontractor.subcontruploaddocuments.showEdit.def";
+    }
+
+    //Modifies an role
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        return "usersubcontractor.subcontruploaddocuments.edit.def";
+    }
+}

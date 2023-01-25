@@ -1,0 +1,24 @@
+<%-- 
+    Document   : submenu
+    Created on : 13-Feb-2022, 16:08:03
+    Author     : Dorina
+--%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/admin/nwusers/list" var="urlUsersList"/>
+<spring:url value="/admin/nwusers/showAddNewUser" var="urlAddUser" />
+
+
+
+<p>  Ne aflam pe pagina Users Management</p>
+<p>
+    <a href="${urlUsersList}">Users List</a>
+    <a href="${urlAddUser}">Add User</a>
+    
+   
+</p>
+
+
+

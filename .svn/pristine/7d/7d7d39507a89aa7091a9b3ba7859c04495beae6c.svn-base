@@ -1,0 +1,46 @@
+package com.iucosoft.nighthawk_interteh_service.serviciispring.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.IntegrationTestBase;
+import com.iucosoft.nighthawk_interteh_service.entities.Subcontractor;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.SubcontractorServiceIntf;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ *
+ * @author Dorina
+ */
+@Slf4j
+public class SubcontractorServiceImplIntegrationTest extends IntegrationTestBase {
+
+//    private SubcontractorDaoIntf subcontractorDao = Mockito.mock(SubcontractorDaoIntf.class, (Answer) (invocation) -> null);
+    @Autowired
+    Subcontractor subcontractor;
+
+    @Autowired
+    SubcontractorServiceIntf subcontractorService;
+
+    @Before
+    public void before() {
+        this.subcontractorService.save(this.subcontractor);
+
+
+    }
+
+    @After
+    public void tearDown() {
+
+        this.subcontractorService.delete(subcontractor.getIdSubcontractor());
+    }
+
+    @Test
+    public void get() {
+        Subcontractor subcontractorDB = this.subcontractorService.findById(this.subcontractor.getIdSubcontractor());
+        Assert.assertEquals(this.subcontractor, subcontractorDB);
+    }
+
+}

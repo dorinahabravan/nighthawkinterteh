@@ -1,0 +1,15 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/admin/portofolio/list" var="urlList"/>
+      <spring:url value="/admin/portofolio/showAddNewPortofolio" var="urlAddPortofolio"/>
+
+
+
+<p>Ne aflam pe pagina Portofolio</p>
+<p>
+    <a href="${urlList}">Portofolio List</a>
+    <a href="${urlAddPortofolio}">Add Portofolio</a>
+   
+</p>

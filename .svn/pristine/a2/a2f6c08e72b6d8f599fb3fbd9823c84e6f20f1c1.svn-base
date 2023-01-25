@@ -1,0 +1,17 @@
+
+package com.iucosoft.nighthawk_interteh_service.dao.concrete;
+
+import com.iucosoft.nighthawk_interteh_service.dao.GenericDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.entities.User;
+
+
+
+/**
+ *
+ * @author 
+ */
+public interface UserDaoIntf extends GenericDaoIntf<User, Integer>{
+//    public User loginUser(int id, String username);
+//    public User loginUser(User user);
+//    
+}

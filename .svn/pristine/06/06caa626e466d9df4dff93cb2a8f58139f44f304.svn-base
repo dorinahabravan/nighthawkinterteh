@@ -1,0 +1,17 @@
+<%-- 
+    Document   : show
+    Created on : 13-Feb-2022, 16:07:15
+    Author     : Dorina
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Show one role page</h1>
+    </body>
+</html>

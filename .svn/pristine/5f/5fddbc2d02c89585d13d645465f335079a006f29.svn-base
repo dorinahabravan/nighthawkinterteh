@@ -1,0 +1,15 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/admin/companies/list" var="urlList"/>
+<spring:url value="/lista/add" var="urlAddCompany" />
+
+
+
+<p>Ne aflam pe pagina Companies</p>
+<p>
+    <a href="${urlList}">Companies List</a>
+    <a href="${urlAddCompany}">Add Company</a>
+
+</p>

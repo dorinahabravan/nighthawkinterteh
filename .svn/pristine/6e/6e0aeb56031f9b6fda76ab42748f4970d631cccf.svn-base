@@ -1,0 +1,36 @@
+package com.iucosoft.nighthawk_interteh_web_cms.dto.validator;
+
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.NWRoleServiceIntf;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+/**
+ *
+ * @author Dorina
+ */
+@Component("nwRoleNameValidator")
+public class NWRoleNameValidator {
+
+    @Autowired
+    NWRoleServiceIntf nwroleService;
+
+    private Pattern pattern;
+    private Matcher matcher;
+
+//    public static final String NAME_PATTERN = "/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/";////   Validation of simple names
+    public static final String NAME_PATTERN ="/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u"; //// Validation of international names with Unicode support
+
+    public NWRoleNameValidator() {
+        pattern = Pattern.compile(NAME_PATTERN);
+
+    }
+
+    public boolean valid(final String name) {
+
+        matcher = pattern.matcher(name);
+        return matcher.matches();
+
+    }
+}

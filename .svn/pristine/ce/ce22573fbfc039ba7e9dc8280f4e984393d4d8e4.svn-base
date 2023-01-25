@@ -1,0 +1,24 @@
+<%-- 
+    Document   : submenu
+    Created on : 13-Feb-2022, 16:08:03
+    Author     : Dorina
+--%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/admin/nwroles/list" var="urlList"/>
+<spring:url value="/lista/add" var="urlAddRole" />
+
+
+
+<p>  Ne aflam pe pagina Roles Management</p>
+<p>
+    <a href="${urlList}">Roles List</a>
+    <a href="${urlAddRole}">Add Role</a>
+    
+   
+</p>
+
+
+

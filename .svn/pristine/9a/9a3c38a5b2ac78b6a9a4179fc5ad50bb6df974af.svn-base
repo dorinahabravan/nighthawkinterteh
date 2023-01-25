@@ -1,0 +1,99 @@
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.admin;
+
+import com.iucosoft.nighthawk_interteh_service.entities.Payroll;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.PayrollServiceIntf;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+@RequestMapping("/admin/payroll")
+public class PayrollController {
+
+    private final Logger logger = LoggerFactory.getLogger(PayrollController.class);
+
+    @Autowired
+    PayrollServiceIntf payrollService;
+
+    /**
+     * Show the list of Payroll
+     *
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("admin.payroll.list.def");
+        try {
+            List<Payroll> lista = payrollService.list();
+            for (Payroll payroll : lista) {
+                System.out.println(payroll);
+
+            }
+
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+
+    /**
+     * Show an Payroll
+     */
+    @RequestMapping(value = "/showView", method = RequestMethod.GET)
+    String showView(@PathVariable("idPayroll") int idPayroll, Model model) {
+
+        logger.debug("showView() idPayroll: {}", idPayroll);
+
+        Payroll payroll = payrollService.findById(idPayroll);
+        if (payroll == null) {
+            model.addAttribute("css", "danger");
+            model.addAttribute("msg", "Payroll not found");
+
+        }
+        model.addAttribute("payroll", payroll);
+
+        return "admin.payroll.showView.def";
+    }
+
+    /**
+     * Add Payroll
+     */
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        return "admin.payroll.showEdit.def";
+    }
+
+    /**
+     * Save or Update Company *
+     *
+     * //////////////////////
+     */
+    
+    /**
+     * Update Payroll
+     */
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        return "admin.payroll.edit.def";
+    }
+
+    /**
+     * Delete Payroll
+     */
+}

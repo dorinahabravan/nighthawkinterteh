@@ -1,0 +1,44 @@
+package com.iucosoft.nighthawk_interteh_service.dao.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.IntegrationTestBase;
+import com.iucosoft.nighthawk_interteh_service.dao.concrete.AdministratorDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.entities.Administrator;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ *
+ * @author Dorina
+ */
+@Slf4j
+public class AdministratorDaoImplIntegrationTest extends IntegrationTestBase {
+
+    @Autowired
+    private Administrator administrator;
+
+    @Autowired
+    private AdministratorDaoIntf administratorDao;
+
+    @Before
+    public void setUp() {
+
+        this.administratorDao.save(this.administrator);
+    }
+
+    @After
+    public void tearDown() {
+        this.administratorDao.delete(administrator.getIdAdministrator());
+    }
+
+    @Test
+    public void testSomeMethod() {
+        Administrator administratorDB = this.administratorDao.findById(this.administrator.getIdAdministrator());
+        Assert.assertEquals(this.administrator, administratorDB);
+    }
+
+}

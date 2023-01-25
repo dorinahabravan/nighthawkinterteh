@@ -1,0 +1,117 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.admin;
+
+import com.iucosoft.nighthawk_interteh_service.entities.Administrator;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.AdministratorServiceIntf;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+@RequestMapping("/admin/personaldetails")
+public class PersonalDetailsController {
+        private final Logger logger = LoggerFactory.getLogger(NWRolesController.class);
+
+    @Autowired
+    AdministratorServiceIntf administratorService;
+
+    
+    
+     /**
+     * Show PersonalDetails
+     *
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("admin.personaldetails.list.def");
+        try {
+            List<Administrator> lista = administratorService.list();
+            for (Administrator administrator : lista) {
+                System.out.println(administrator);
+
+            }
+
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+    
+    
+      /**
+     * Show PersonalDetails
+     */
+
+    @RequestMapping(value = "/showView", method = RequestMethod.GET)
+    String showView(@PathVariable("id") int id, Model model) {
+          logger.debug("showView() id: {}", id);
+          
+          Administrator admin = administratorService.findById(id);
+        if (admin == null) {
+            model.addAttribute("css", "danger");
+            model.addAttribute("msg", "Administrator not found");
+
+        }
+        model.addAttribute("admin", admin);
+
+
+        return "admin.personaldetails.showView.def";
+    }
+    
+    
+    
+     /**
+     *
+     * Add PersonalDetails
+     */
+
+
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        return "admin.personaldetails.showEdit.def";
+    }
+
+    
+    
+    /**
+     * Save or Update Company *
+     * 
+     * //////////////////////
+     */  
+    
+    /**
+     *
+     * Update PersonalDetails
+     */
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        return "admin.personaldetails.edit.def";
+    }
+
+    
+      /**
+     *
+     * Delete PersonalDetails
+     */
+}

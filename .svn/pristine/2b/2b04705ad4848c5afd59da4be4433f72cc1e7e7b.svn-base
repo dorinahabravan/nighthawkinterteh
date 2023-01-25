@@ -1,0 +1,8 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/home" var="urlHome"/>
+
+
+<p><a href="${urlHome}">Home Page</a></p>

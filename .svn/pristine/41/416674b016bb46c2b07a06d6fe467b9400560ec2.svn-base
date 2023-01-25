@@ -1,0 +1,23 @@
+<%-- 
+    Document   : home
+    Created on : 01-Feb-2022, 17:57:59
+    Author     : Dorina
+--%>
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page session="false"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
+
+<h3>Welcome Payroll</h3>
+
+
+
+<a href="<c:url value='/logout' />" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
+
+

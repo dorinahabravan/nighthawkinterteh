@@ -1,0 +1,95 @@
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri;
+
+import com.iucosoft.nighthawk_interteh_service.entities.User;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.UserServiceIntf;
+import java.util.Map;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+public class LoginController {
+
+    @Autowired
+    UserServiceIntf userService;
+
+    @RequestMapping(value = "/showlogin", method = RequestMethod.GET)
+    ModelAndView showLogin() {
+
+        ModelAndView mv = new ModelAndView("showlogin.def");
+        mv.addObject("msg", "Please Enter Your Login Details");
+
+        return mv;
+    }
+//    Login si logout
+//    Metoda login in depdendenta de reusita authentificarii si a rolului ne redirectioneaza: admin(pagina principala din cms pentru admin), user, inapoi in login cu error
+
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    String login(@Valid User user, BindingResult result, Map model) {
+
+//        ModelAndView mv = new ModelAndView("admin.home.def");
+        String username = "username";
+        String password = "password";
+        if (result.hasErrors()) {
+            return "showlogin.def";
+
+        }
+        user = (User) model.get("user");
+        if (!user.getUsername().equals(username) || !user.getPassword().equals(password)){
+        
+            return "admin.home.def";
+        }
+
+        model.put("user", user.getRole());
+        return "admin.home.def"; 
+
+    
+}
+
+@RequestMapping(value = "/logout", method = RequestMethod.GET)
+    ModelAndView logout(){
+
+        ModelAndView mv = new ModelAndView("showlogin.def");
+
+        return mv;
+    }
+}
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+//        String username= request.getParameter("username");
+//        String password= request.getParameter("password");
+//        String message;
+//        if(username !=null && !username.equals("") && username.equals("admin") && password !=null && password.equals("") &&
+//                password.equals("12345")){
+//            message= "Welcome" +username+ ".";
+//            
+//            return new ModelAndView("admin.home.def", "message", message);
+//            
+//              }else{
+//        
+//        message=("Wrong username and password");
+//         
+//}
+////        return new ModelAndView("error.def", "message", message);
+//        return mv;
+

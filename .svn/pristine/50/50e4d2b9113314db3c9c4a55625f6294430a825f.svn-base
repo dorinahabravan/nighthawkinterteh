@@ -1,0 +1,66 @@
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.userpayroll;
+
+import com.iucosoft.nighthawk_interteh_service.entities.Contract;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.ContractServiceIntf;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+@RequestMapping("/userpayroll/payrollcontracts")
+public class PayrollContractsController {
+    
+    
+     @Autowired
+     ContractServiceIntf contractService;
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("userpayroll.payrollcontracts.list.def");
+        try {
+            List<Contract> lista = contractService.list();
+            for (Contract contract : lista) {
+                System.out.println(contract);
+
+            }
+
+           
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+
+    @RequestMapping(value = "/showView", method = RequestMethod.GET)
+    String showView() {
+
+     
+        return "userpayroll.payrollcontracts.showView.def";
+    }
+
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        return "userpayroll.payrollcontracts.showEdit.def";
+    }
+
+    //Modifies an role
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        return "userpayroll.payrollcontracts.edit.def";
+    }
+
+}
+    

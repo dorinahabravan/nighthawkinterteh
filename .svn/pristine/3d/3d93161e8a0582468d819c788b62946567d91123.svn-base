@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.iucosoft.nighthawk_interteh_service.serviciispring.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.UnitTestBase;
+import com.iucosoft.nighthawk_interteh_service.entities.Subcontractor;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.SubcontractorServiceIntf;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ *
+ * @author Dorina
+ */
+@Slf4j
+public class SubcontractorServiceImplUnitTest extends UnitTestBase {
+
+    @Autowired
+    private Subcontractor subcontractor;
+
+    @Autowired
+    private SubcontractorServiceIntf subcontractorService;
+
+    @Before
+    public void setUp() {
+        this.subcontractorService.save(this.subcontractor);
+    }
+
+    
+   
+    @After
+    public  void tearDown() {
+         this.subcontractorService.delete(subcontractor.getIdSubcontractor());
+    }
+
+  
+
+//    @Test
+//    public void testSomeMethod() {
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+    
+//      @Test
+    public void get() {
+        Subcontractor subcontractorDB = this.subcontractorService.findById(this.subcontractor.getIdSubcontractor());
+        Assert.assertEquals(this.subcontractor, subcontractorDB);
+    }
+
+}

@@ -1,0 +1,166 @@
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.admin;
+
+import com.iucosoft.nighthawk_interteh_service.entities.NWRole;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.NWRoleServiceIntf;
+import java.util.Date;
+import java.util.List;
+
+import static org.hibernate.annotations.common.util.impl.LoggerFactory.logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+@RequestMapping("/admin/nwroles")
+public class NWRolesController {
+
+    private final Logger logger = LoggerFactory.getLogger(NWRolesController.class);
+
+    @Autowired
+    NWRoleServiceIntf nwroleService;
+
+    
+    
+    /**
+     Show the list of Roles
+     
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("admin.nwroles.list.def");
+        try {
+            List<NWRole> lista = nwroleService.list();
+            for (NWRole nWRole : lista) {
+                System.out.println(nWRole);
+
+            }
+
+            System.out.println("Am intrat in metoda roles!" + new Date());
+
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+
+    /**
+     * Show an Role
+     */
+    @RequestMapping(value = "/showView/id}", method = RequestMethod.GET)
+    String showView(@PathVariable("id") int id, Model model) {
+
+        logger.debug("showView() id: {}", id);
+
+        NWRole role = nwroleService.findById(id);
+        if (role == null) {
+            model.addAttribute("css", "danger");
+            model.addAttribute("msg", "Role not found");
+
+        }
+        model.addAttribute("role", role);
+
+        return "admin.nwroles.showView.def";
+    }
+
+    /**
+     * Save or Update Role *
+     * 
+     * 
+     */
+//    @RequestMapping(value = "/list", method = RequestMethod.POST)
+//    public String saveOrUpdateRole(@ModelAttribute("edit") @Validated NWRole role,
+//            BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+//
+//        logger.debug("saveOrUpdateRole() : {}", role);
+//
+//        if (result.hasErrors()) {
+//            populateDefaultModel(model);
+//            return "admin.nwroles.edit.def";
+//        } else {
+//
+//            redirectAttributes.addFlashAttribute("css", "success");
+//            if (role.isNew()) {
+//                redirectAttributes.addFlashAttribute("msg", "Role added successfully!");
+//            } else {
+//                redirectAttributes.addFlashAttribute("msg", "Role updated successfully!");
+//            }
+//
+//            nwroleService.saveOrUpdate(role);
+//
+//            // POST/REDIRECT/GET
+//            return "redirect:/list/" + role.getUserRoleId();
+//
+//            // POST/FORWARD/GET
+//            // return "user/list";
+//        }
+//
+//    }
+
+    /**
+     *
+     * Add Role
+     */
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        System.out.println("Am intrat in metoda roles!");
+
+        return "admin.nwroles.showEdit.def";
+    }
+
+    /**
+     *
+     * Update Role
+     *
+     */
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        System.out.println("Am intrat in metoda roles!");
+
+        return "admin.nwroles.edit.def";
+    }
+
+    /**
+     *
+     * Delete Role
+     *
+     */
+    @RequestMapping(value = "/lista/{id}/delete", method = RequestMethod.POST)
+    public String deleteRole(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
+
+        logger.debug("deleteRole() : {}", id);
+
+        nwroleService.delete(id);
+
+        redirectAttributes.addFlashAttribute("css", "success");
+        redirectAttributes.addFlashAttribute("msg", "Role is deleted!");
+
+        return "redirect:/lista";
+
+    }
+
+    private void populateDefaultModel(Model model) {
+        
+        
+        
+        
+        
+    }
+
+}

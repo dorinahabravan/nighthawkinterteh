@@ -1,0 +1,81 @@
+<%-- 
+    Document   : edit
+    Created on : 13-Feb-2022, 16:07:40
+    Author     : Dorina
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Edit role page !</h1>
+    </body>
+</html>
+
+
+<%--<%@ page session="false"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <div class="container">
+        <h1>Edit role page !</h1>
+
+        <c:choose>
+            <c:when test="${edit['new']}">
+                <h1>Add Role</h1>
+            </c:when>
+            <c:otherwise>
+                <h1>Update Role</h1>
+            </c:otherwise>
+        </c:choose>
+        <br />
+
+        <spring:url value="/list" var="roleActionUrl" />
+
+        <form:form class="form-horizontal" method="post" modelAttribute="edit" action="${roleActionUrl}">
+
+            <form:hidden path="userRoleId" />
+
+            <spring:bind path="userRoleName">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <label class="col-sm-2 control-label"> Role Name</label>
+                    <div class="col-sm-10">
+                        <form:input path="userRoleName" type="text" class="form-control " id="userRoleName" placeholder="Name" />
+                        <form:errors path="userRoleName" class="control-label" />
+                    </div>
+                </div>
+            </spring:bind>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <c:choose>
+                        <c:when test="${edit['new']}">
+                            <button type="submit" class="btn-lg btn-primary pull-right">Add</button>
+                        </c:when>
+                        <c:otherwise>
+                            <button type="submit" class="btn-lg btn-primary pull-right">Update</button>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </div>
+
+        </form:form>
+        
+        </div>
+    </body>
+
+</html>--%>
+
+

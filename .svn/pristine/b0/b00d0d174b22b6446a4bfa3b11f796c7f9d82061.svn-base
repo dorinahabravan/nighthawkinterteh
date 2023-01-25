@@ -1,0 +1,49 @@
+///*
+// * To change this license header, choose License Headers in Project Properties.
+// * To change this template file, choose Tools | Templates
+// * and open the template in the editor.
+// */
+//package com.iucosoft.nighthawk_interteh_service.dao.impl.implconcrete;
+//
+//import com.iucosoft.nighthawk_interteh_service.IntegrationTestBase;
+//import com.iucosoft.nighthawk_interteh_service.dao.concrete.ContractProjectDaoIntf;
+//import com.iucosoft.nighthawk_interteh_service.entities.ContractProject;
+//import org.junit.After;
+//import org.junit.AfterClass;
+//import org.junit.Before;
+//import org.junit.BeforeClass;
+//import org.junit.Test;
+//import static org.junit.Assert.*;
+//import org.springframework.beans.factory.annotation.Autowired;
+//
+///**
+// *
+// * @author Dorina
+// */
+//public class ContractProjectDaoImplIntegrationTest  extends IntegrationTestBase{
+//    
+// @Autowired
+// private ContractProject contractProject;
+// 
+// @Autowired
+//  private ContractProjectDaoIntf contractProjectDao;
+// 
+//    
+//    @Before
+//    public void setUp() {
+//        this.contractProjectDao.save(this.contractProject);
+//        
+//    }
+//    
+//    @After
+//    public void tearDown() {
+//        this.contractProjectDao.delete(contractProject.getId());
+//    }
+//
+////    @Test
+//    public void testSomeMethod() {
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//    
+//}

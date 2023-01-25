@@ -1,0 +1,16 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/admin/portofolio/list" var="urlList"/>
+<spring:url value="/admin/portofolio/showView" var="urlShowView"/>
+<spring:url value="/admin/portofolio/showEdit" var="urlShowEdit"/>
+
+
+<p>Ne aflam pe pagina Portofolio</p>
+<p>
+    <a href="${urlList}">Portofolio List</a>
+    <%--Linkurile o sa mearga la fiecare rind a  tabelei--%>
+    <a href="${urlShowView}">Show one to view</a>
+    <a href="${urlShowEdit}">Show one to edit</a>
+</p>

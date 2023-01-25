@@ -1,0 +1,19 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/userpayroll/home" var="urlHome"/>
+<spring:url value="/userpayroll/compnanies/list" var="urlCompanies"/>
+<spring:url value="/userpayroll/contracts/list" var="urlContracts"/>
+<spring:url value="/userpayroll/payments/list" var="urlPayments"/>
+<spring:url value="/userpayroll/subcontractors/list" var="urlSubcontractors"/>
+
+
+
+<p><a href="${urlHome}">Home Page</a></p>
+<p><a href="${urlCompanies}">Companies</a></p>
+<p><a href="${urlContracts}">Contracts</a></p>
+<p><a href="${urlPayments}">Payments</a></p>
+<p><a href="${urlSubcontractors}">Suncontractors</a></p>
+
+

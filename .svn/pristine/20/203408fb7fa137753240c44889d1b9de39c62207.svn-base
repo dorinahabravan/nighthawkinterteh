@@ -1,0 +1,16 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/subcontrcontracts/list" var="urlList"/>
+<spring:url value="/subcontrcontracts/showView" var="urlShowView"/>
+<spring:url value="/subcontrcontracts/showEdit" var="urlShowEdit"/>
+
+
+<p>Ne aflam pe pagina Subcontractor Contracts</p>
+<p>
+    <a href="${urlList}"> Subcontractor Contracts List</a>
+    <%--Linkurile o sa mearga la fiecare rind a  tabelei--%>
+    <a href="${urlShowView}">Show one to view</a>
+    <a href="${urlShowEdit}">Show one to edit</a>
+</p>

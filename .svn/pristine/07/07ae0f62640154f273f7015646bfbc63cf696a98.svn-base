@@ -1,0 +1,34 @@
+
+package com.iucosoft.nighthawk_interteh_service.serviciispring.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.dao.GenericDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.dao.concrete.UserDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.entities.User;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.UserServiceIntf;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.impl.GenericServiceAbstractImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author 
+ */
+@Service("userDao")
+public class UserServiceImpl 
+        extends GenericServiceAbstractImpl<User, Integer> 
+                 implements UserServiceIntf{
+    
+    
+    
+    @Autowired
+    UserDaoIntf userDao;
+
+    @Autowired
+    public UserServiceImpl(@Qualifier("userDao") GenericDaoIntf genericDao) {
+        super(genericDao);
+        this.userDao = (UserDaoIntf) genericDao;
+    }
+    
+   
+}

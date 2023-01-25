@@ -1,0 +1,19 @@
+<%-- 
+    Document   : login
+    Created on : 16-Mar-2022, 19:52:24
+    Author     : Dorina
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <!--Sprin url penrtru actiunea login--> 
+        <!--Formular html cu tag spring pentru forma si model-->
+    </body>
+</html>

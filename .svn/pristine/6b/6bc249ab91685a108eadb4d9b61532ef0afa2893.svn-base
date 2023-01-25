@@ -1,0 +1,15 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+
+<spring:url value="/admin/payroll/list" var="urlList"/>
+
+<spring:url value="/admin/payroll/showAddNewPayroll" var="urlAddPayroll" />
+
+
+<p>Ne aflam pe pagina Payroll</p>
+<p>
+    <a href="${urlList}">Payroll List</a>
+    <a href="${urlAddPayroll}">Add Payroll</a>
+
+</p>

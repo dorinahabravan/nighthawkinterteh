@@ -1,0 +1,13 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
+<spring:url value="/welcome" var="urlWelcome"/>
+<spring:url value="/login" var="urlLoginPage"/>
+
+
+<!--<p><a href="${urlWelcome}">Pagina de pornire</a></p>-->
+<!--
+--><p><a href="${urlLoginPage}">Login Page</a></p>
+
+
+

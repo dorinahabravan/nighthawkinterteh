@@ -1,0 +1,113 @@
+package com.iucosoft.nighthawk_interteh_web_cms.springmvc.webcontrolleri.admin;
+
+import com.iucosoft.nighthawk_interteh_service.entities.Subcontractor;
+import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.SubcontractorServiceIntf;
+import java.util.Date;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Dorina
+ */
+@Controller
+@RequestMapping("/admin/subcontractors")
+public class SubcontractorsController {
+    private final Logger logger = LoggerFactory.getLogger(NWRolesController.class);
+
+    @Autowired
+    SubcontractorServiceIntf subcontractorService;
+
+    /**
+     * Show the list of Subcontractors
+     *
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    ModelAndView list() {
+
+        ModelAndView mv = new ModelAndView("admin.subcontractors.list.def");
+        try {
+            List<Subcontractor> lista = subcontractorService.list();
+            for (Subcontractor subcontractor : lista) {
+                System.out.println(subcontractor);
+
+            }
+
+            System.out.println("Am intrat in metoda subcontractors!" + new Date());
+
+            mv.addObject("lista", lista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return mv;
+    }
+
+    /**
+     * Show an Subcontractor
+     */
+    @RequestMapping(value = "/showView/{idSubcontractor}", method = RequestMethod.GET)
+    String showView(@PathVariable("idSubcontractor") int idSubcontractor, Model model) {
+           logger.debug("showView() idSubcontractor: {}", idSubcontractor);
+           
+            Subcontractor subcontractor = subcontractorService.findById(idSubcontractor);
+        if (subcontractor == null) {
+            model.addAttribute("css", "danger");
+            model.addAttribute("msg", "Subcontractor not found");
+    }
+
+          model.addAttribute("subcontractor", subcontractor);
+
+        return "admin.subcontractors.showView.def";
+    }
+    
+    
+
+    /**
+     *
+     * Add Subcontractor
+     */
+    @RequestMapping(value = "/showEdit", method = RequestMethod.GET)
+    String showEdit() {
+
+        System.out.println("Am intrat in metoda subcontractors!");
+
+        return "admin.subcontractors.showEdit.def";
+    }
+
+    /**
+     * Save or Update Subcontractor *
+     *
+     * //////////////////////
+     */
+    
+    /**
+     *
+     * Update Subcontractor
+     *
+     */
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    String edit() {
+
+        System.out.println("Am intrat in metoda subcontractors!");
+
+        return "admin.subcontractors.edit.def";
+    }
+    
+    
+    /**
+     *
+     * Delete Subcontractor
+     *
+     */
+
+}

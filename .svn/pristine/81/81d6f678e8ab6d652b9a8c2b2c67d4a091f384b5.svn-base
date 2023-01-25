@@ -1,0 +1,45 @@
+
+package com.iucosoft.nighthawk_interteh_service.dao.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.IntegrationTestBase;
+import com.iucosoft.nighthawk_interteh_service.dao.concrete.ContractDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.entities.Contract;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ *
+ * @author Dorina
+ */
+@Slf4j
+public class ContractDaoImplIntegrationTest extends IntegrationTestBase {
+
+    @Autowired
+    private Contract contract;
+
+    @Autowired
+    ContractDaoIntf contractDao;
+
+    @Before
+    public void setUp() {
+        this.contractDao.save(this.contract);
+    }
+
+    @After
+    public void tearDown() {
+        this.contractDao.delete(contract.getIdContract());
+    }
+
+    @Test
+    public void testSomeMethod() {
+        Contract contractDB = this.contractDao.findById(this.contract.getIdContract());
+        Assert.assertEquals(this.contract,contractDB);
+
+    }
+
+}

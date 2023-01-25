@@ -1,0 +1,36 @@
+
+package com.iucosoft.nighthawk_interteh_service.dao.impl.implconcrete;
+
+import com.iucosoft.nighthawk_interteh_service.dao.concrete.UserDaoIntf;
+import com.iucosoft.nighthawk_interteh_service.dao.impl.GenericDaoHibernateAbstractImpl;
+import com.iucosoft.nighthawk_interteh_service.entities.User;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author Dorina
+ */
+@Repository("userDao")
+public class UserDaoImpl extends GenericDaoHibernateAbstractImpl<User, Integer> implements UserDaoIntf{
+
+//    @Override
+//    public String loginUser(int id, String username) {
+//        
+//        User user = currentSession().get(User.class, id);
+//        user.setIdUser(id);
+//        return username;
+//
+//    }
+
+//    @Override
+//    public String loginUser(User user) {
+//        User userLogin = currentSession().get(User.class, user);
+//        userLogin.setIdUser(id);
+//        return loginUser(user);
+//    }
+
+   
+
+
+    }
+  
