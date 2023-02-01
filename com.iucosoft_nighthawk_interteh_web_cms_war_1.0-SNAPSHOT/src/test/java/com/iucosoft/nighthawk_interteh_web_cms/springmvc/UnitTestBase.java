@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 /**
  * This is a base test class for non-controller class in testing stage<BR/>
@@ -21,6 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //    TestApplicationContext.class, UnitTestApplicationContext.class
           config.TestApplicationContext.class, com.iucosoft.nighthawk_interteh_web_cms.springmvc.configuration.MyWebApplicationConfig.class
 })
+@WebAppConfiguration
 @Ignore
 public abstract class UnitTestBase
 {

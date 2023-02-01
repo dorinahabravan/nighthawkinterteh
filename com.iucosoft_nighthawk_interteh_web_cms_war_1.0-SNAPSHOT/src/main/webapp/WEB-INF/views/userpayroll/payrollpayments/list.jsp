@@ -29,7 +29,7 @@
             <tr>
 
                 <td>${payment.idPayment}</td>
-                <td>${payment.contract.idContract}</td>
+                <td>${payment.contract}</td>
                 <td>${payment.paymentDate}</td>
                 <td>${payment.paymentBill}</td>
                 <td>${payment.paymentType}</td>

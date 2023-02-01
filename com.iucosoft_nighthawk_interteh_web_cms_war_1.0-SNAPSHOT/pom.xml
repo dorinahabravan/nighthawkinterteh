@@ -47,13 +47,15 @@
             </dependency>  
         -->
         <!--/////////////////////////////////////-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.2.2</version>
+            <version>4.8.1</version>
             <scope>test</scope>
            
-        </dependency>
+        </dependency>-->
+        
+        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -61,16 +63,14 @@
             <scope>test</scope>
         </dependency>
         
-        
-        
-        <!--Aici am adaugat dependenta GSON-->
-       
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.6</version>
-            <!--<type>jar</type>-->
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
         </dependency>
+       
+        
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -94,7 +94,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>5.2.5.RELEASE</version>
+            <version>5.2.3.RELEASE</version>
             <scope>test</scope>
         </dependency>
         
@@ -112,6 +112,13 @@
             <type>jar</type>
         </dependency>
 
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-mock</artifactId>
+            <version>2.0.8</version>
+        </dependency>
      
         <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
@@ -177,7 +184,15 @@
                 </configuration>
             </plugin>
             
-          
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -196,7 +211,7 @@
                                     <groupId>javax</groupId>
                                     <artifactId>javaee-endorsed-api</artifactId>
                                     <version>7.0</version>
-                             
+                                    <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>

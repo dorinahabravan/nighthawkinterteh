@@ -1,8 +1,0 @@
-com\iucosoft\nighthawk_interteh_web_cms\springmvc\UnitTestBase.class
-com\iucosoft\nighthawk_interteh_web_cms\springmvc\webcontrolleri\admin\NWUsersControllerIntegrationTest.class
-com\iucosoft\nighthawk_interteh_web_cms\springmvc\IntegrationTestBase.class
-TestControllerNWUser.class
-com\iucosoft\nighthawk_interteh_web_cms\springmvc\ControllerClientSideTestBase.class
-config\TestApplicationContext.class
-com\iucosoft\nighthawk_interteh_web_cms\springmvc\ControllerServerSideTestBase.class
-config\UnitTestApplicationContext.class

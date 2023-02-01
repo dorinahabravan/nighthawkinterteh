@@ -14,12 +14,7 @@ import org.springframework.context.annotation.Scope;
  */
 @Configuration
 public class TestApplicationContext {
-//    @Bean
-//    public Gson gson()
-//    {
-//        return new Gson();
-//    }
-//
+
 
     @Bean
     @Scope("prototype")

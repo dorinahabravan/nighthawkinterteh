@@ -28,7 +28,7 @@
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <label class="col-sm-2 control-label">  Contract</label>
                     <div class="col-sm-10">
-                        <form:input path="contract" type="text" class="form-control " id="contract" placeholder="Contract"   />
+                        <form:input path="contract" type="text" class="form-control" id="contract" placeholder="Contract"   />
                         <form:errors path="contract" class="control-label"   />
                     </div>
                 </div>
@@ -37,11 +37,14 @@
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <label class="col-sm-2 control-label"> Payment Date</label>
                     <div class="col-sm-10">
-                        <form:input path="paymentDate" type="text" class="form-control " id="paymentDate" placeholder="Payment Date"   />
+                        <label for="prefill-example">Select date</label>
+                    <form:input path="paymentDate" type="date" id="dateFormat" class="form-control"  />
                         <form:errors path="paymentDate" class="control-label"   />
                     </div>
                 </div>
             </spring:bind>
+            
+        
             <spring:bind path="paymentBill">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <label class="col-sm-2 control-label"> Payment Bill</label>

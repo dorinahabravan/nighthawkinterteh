@@ -4,14 +4,20 @@ import com.iucosoft.nighthawk_interteh_service.entities.Payment;
 import com.iucosoft.nighthawk_interteh_service.serviciispring.concrete.intf.PaymentServiceIntf;
 import com.iucosoft.nighthawk_interteh_web_cms.dto.PaymentDTO;
 import com.iucosoft.nighthawk_interteh_web_cms.dto.convertors.PaymentConvertor;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -169,6 +175,14 @@ public class PayrollPaymentsController {
 
         return "redirect:/userpayroll/payrollpayments/list";
 
+    }
+    
+    
+     @InitBinder
+     public void initBinderDate(HttpServletRequest request, ServletRequestDataBinder binder) {
+        SimpleDateFormat dateFormatP = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormatP.setLenient(false);
+        binder.registerCustomEditor(Date.class,null, new CustomDateEditor( dateFormatP, true));
     }
      
 
