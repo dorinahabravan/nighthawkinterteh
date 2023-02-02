@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
@@ -23,9 +25,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-
 
 /**
  *
@@ -52,11 +54,11 @@ public class NWUsersControllerTest extends ControllerClientSideTestBase {
 
     public NWUsersControllerTest() {
     }
-    
-       @BeforeClass
+
+    @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -75,24 +77,18 @@ public class NWUsersControllerTest extends ControllerClientSideTestBase {
 
     /**
      * Test of testList method, of class NWUsersControllerTest.
+     *
      * @throws java.lang.Exception
      */
     @Test
     public void testList() throws Exception {
-        List <NWUser> list = new ArrayList<>();
-                list.add(nWUser);
-                list.add(nWUser);
- 
+        List<NWUser> list = new ArrayList<>();
+        list.add(nWUser);
+        list.add(nWUser);
 
-
-       
 //        when(nwuserServiceMock.list()).thenReturn((List) list);
-                when(nwuserServiceMock.list()).thenReturn(Arrays.asList(nWUser));
+        when(nwuserServiceMock.list()).thenReturn(Arrays.asList(nWUser));
 
- 
-        
-        
-        
         ResultActions andExpect = mockMvc.perform(get("/admin/nwusers/list"))
                 .andExpect(status().isOk())
                 .andExpect(forwardedUrl("admin.nwusers.list.def"))
@@ -101,10 +97,34 @@ public class NWUsersControllerTest extends ControllerClientSideTestBase {
 //                .andExpect(model().attribute("nwUserDTOList", Arrays.asList(nWUser)));
 //                .andExpect(model().attribute("user", Arrays.asList(nWUser)));
 
-}
-    
+    }
 
+    @Test
+    public void testShowView() throws Exception {
+        Integer id = 1;
 
+        when(nwuserServiceMock.findById(id)).thenReturn(new NWUser());
 
+        mockMvc.perform(get("/admin/nwusers/showView/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("admin.nwusers.showView.def"));
+//                .andExpect(model().attribute("nWUser", instanceOf(NWUser.class)));
+    }
+
+    @Test
+    public void testSaveOrUpdateUser() throws Exception {
+        Integer idUser = 1;
+
+//        when(nwuserServiceMock.saveOrUpdate(nWUser)).thenReturn());
+//        when(nwuserServiceMock.saveOrUpdate(idUser));
+//        when(nwuserServiceMock.saveOrUpdate(Matchers.<NWUser>any())).thenReturn(id);
+        when(nwuserServiceMock.findById(idUser)).thenReturn(new NWUser());
+
+        mockMvc.perform(post("nWUser/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("admin.nwusers.showEdit.def"));
+
+//
+    }
 
 }
