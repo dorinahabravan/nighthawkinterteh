@@ -60,7 +60,7 @@ public class Filedocument  implements java.io.Serializable {
         this.documentId = documentId;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="Account_ID", nullable=false)
     public Account getAccount() {
         return this.account;
@@ -100,7 +100,7 @@ public class Filedocument  implements java.io.Serializable {
         this.documentContent = documentContent;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="filedocument")
+@OneToMany(fetch=FetchType.EAGER, mappedBy="filedocument")
     public Set<Filecontent> getFilecontents() {
         return this.filecontents;
     }
