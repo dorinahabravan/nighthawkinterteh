@@ -1,16 +1,22 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 
 
-<spring:url value="/subcontruploaddocuments/list" var="urlList"/>
-<spring:url value="/subcontruploaddocuments/showView" var="urlShowView"/>
-<spring:url value="/subcontruploaddocuments/showEdit" var="urlShowEdit"/>
+<spring:url value="/usersubcontractor/subcontruploaddocuments/list" var="urlDocumentsList"/>
+<spring:url value="/usersubcontractor/subcontruploaddocuments/showAddNewDocument" var="urlAddDocument" />
 
 
-<p>Ne aflam pe pagina Documents</p>
-<p>
-    <a href="${urlList}">Documents List</a>
-    <%--Linkurile o sa mearga la fiecare rind a  tabelei--%>
-    <a href="${urlShowView}">Show one to view</a>
-    <a href="${urlShowEdit}">Show one to edit</a>
-</p>
+
+<a  href="${urlDocumentsList}">
+    <button class=" btn btn-sm">Documents List
+        <span class="bi bi-person-lines-fill"></span>
+    </button>
+</a>
+
+
+<a href="${urlAddDocument}">
+    <button class="btn btn-sm " type="button">Add Document
+        <span class="bi bi-plus-circle"></span>
+    </button>
+</a>

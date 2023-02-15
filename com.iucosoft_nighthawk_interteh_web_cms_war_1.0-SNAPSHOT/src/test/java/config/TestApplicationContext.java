@@ -4,6 +4,7 @@ import com.iucosoft.nighthawk_interteh_service.entities.NWRole;
 import com.iucosoft.nighthawk_interteh_service.entities.NWUser;
 import com.iucosoft.nighthawk_interteh_service.entities.Project;
 import com.iucosoft.nighthawk_interteh_service.entities.Subcontractor;
+import com.iucosoft.nighthawk_interteh_web_cms.dto.NWUserDTO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -36,6 +37,18 @@ public class TestApplicationContext {
         nWUser.setIdUser(1);
         nWUser.setRole(nwRole);
         return nWUser;
+    }
+
+    @Bean
+    @Scope("prototype")
+    public NWUserDTO nwUserDTO() {
+        NWUserDTO nwUserDTO = new NWUserDTO();
+        nwUserDTO.setActive(true);
+        nwUserDTO.setUsername("admin");
+        nwUserDTO.setPassword("123");
+        nwUserDTO.setIdUser(1);
+//        nWUser.setRole(nwRole);
+        return nwUserDTO;
     }
 
     @Bean

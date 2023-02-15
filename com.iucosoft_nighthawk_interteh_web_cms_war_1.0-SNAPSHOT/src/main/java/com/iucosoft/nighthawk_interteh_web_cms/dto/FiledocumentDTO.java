@@ -20,8 +20,12 @@ public class FiledocumentDTO  implements Serializable{
      private String fileName;
      private String fileExtenstion;
      private String documentContent;
-     private Date lastTimeModified;
+//     private Date lastTimeModified;
      private Set<Filecontent> filecontents = new HashSet<Filecontent>(0);
+     
+     
+     
+
      
 
     public FiledocumentDTO() {
@@ -67,13 +71,13 @@ public class FiledocumentDTO  implements Serializable{
         this.documentContent = documentContent;
     }
 
-    public Date getLastTimeModified() {
-        return lastTimeModified;
-    }
-
-    public void setLastTimeModified(Date lastTimeModified) {
-        this.lastTimeModified = lastTimeModified;
-    }
+//    public Date getLastTimeModified() {
+//        return lastTimeModified;
+//    }
+//
+//    public void setLastTimeModified(Date lastTimeModified) {
+//        this.lastTimeModified = lastTimeModified;
+//    }
 
     public Set<Filecontent> getFilecontents() {
         return filecontents;
@@ -114,8 +118,10 @@ public class FiledocumentDTO  implements Serializable{
 
     @Override
     public String toString() {
-        return "FiledocumentDTO{" + "documentId=" + documentId + ", account=" + account + ", fileName=" + fileName + ", fileExtenstion=" + fileExtenstion + ", documentContent=" + documentContent + ", lastTimeModified=" + lastTimeModified + ", filecontents=" + filecontents + '}';
+        return "FiledocumentDTO{" + "documentId=" + documentId + ", account=" + account + ", fileName=" + fileName + ", fileExtenstion=" + fileExtenstion + ", documentContent=" + documentContent + ", filecontents=" + filecontents + '}';
     }
+
+ 
 
    
      
