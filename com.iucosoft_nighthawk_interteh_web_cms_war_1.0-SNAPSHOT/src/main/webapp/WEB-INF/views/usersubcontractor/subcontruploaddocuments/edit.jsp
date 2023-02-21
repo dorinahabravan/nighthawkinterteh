@@ -12,7 +12,7 @@
     <div class="container">
 
         <c:choose>
-            <c:when test="${filedocumentDTO.documentId ==null}">
+            <c:when test="${filedocumentDTO.fileDocumentId ==null}">
             </c:when>
             <c:otherwise>
             </c:otherwise>
@@ -23,7 +23,7 @@
 
         <form:form class="form-horizontal" method="post" modelAttribute="filedocumentDTO" action="${filedocumentActionUrl}">
 
-            <form:hidden path="documentId" />
+            <form:hidden path="fileDocumentId" />
 
             <spring:bind path="account.idAccount">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -68,7 +68,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <c:choose>
-                        <c:when test="${filedocumentDTO.documentId ==null}">
+                        <c:when test="${filedocumentDTO.fileDocumentId ==null}">
                             <button type="submit" class="btn-lg btn-primary pull-right">Add</button>
                         </c:when>
                         <c:otherwise>

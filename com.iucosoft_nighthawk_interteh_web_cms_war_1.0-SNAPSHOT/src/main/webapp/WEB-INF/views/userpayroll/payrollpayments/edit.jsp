@@ -24,12 +24,12 @@
 
             <form:hidden path="idPayment" />
 
-            <spring:bind path="contract">
+            <spring:bind path="contract.idContract">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <label class="col-sm-2 control-label">  Contract</label>
                     <div class="col-sm-10">
-                        <form:input path="contract" type="text" class="form-control" id="contract" placeholder="Contract"   />
-                        <form:errors path="contract" class="control-label"   />
+                        <form:input path="contract.idContract" type="text" class="form-control" id="contract.idContract" placeholder="Contract"   />
+                        <form:errors path="contract.idContract" class="control-label"   />
                     </div>
                 </div>
             </spring:bind>
@@ -65,7 +65,7 @@
             </spring:bind>
             <spring:bind path="paymentDescription">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <label class="col-sm-2 control-label"> Contract Type</label>
+                    <label class="col-sm-2 control-label">Payment Description</label>
                     <div class="col-sm-10">
                         <form:input path="paymentDescription" type="text" class="form-control " id="paymentDescription" placeholder="Payment Description"   />
                         <form:errors path="paymentDescription" class="control-label"   />

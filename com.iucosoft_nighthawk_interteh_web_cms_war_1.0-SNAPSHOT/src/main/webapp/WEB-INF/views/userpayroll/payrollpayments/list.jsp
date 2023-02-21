@@ -29,7 +29,7 @@
             <tr>
 
                 <td>${payment.idPayment}</td>
-                <td>${payment.contract}</td>
+                <td>${payment.contract.idContract}</td>
                 <td>${payment.paymentDate}</td>
                 <td>${payment.paymentBill}</td>
                 <td>${payment.paymentType}</td>
@@ -44,9 +44,9 @@
 
 
                 
-                    <spring:url value="/userpayroll/payrollpayments/showView/${contract.idContract}" var="paymentUrl" />
-                    <spring:url value="/userpayroll/payrollpayments/delete/${contract.idContract}" var="deleteUrl" /> 
-                    <spring:url value="/userpayroll/payrollpayments/showEdit/${contract.idContract}" var="updateUrl" />
+                    <spring:url value="/userpayroll/payrollpayments/showView/${payment.idPayment}" var="paymentUrl" />
+                    <spring:url value="/userpayroll/payrollpayments/delete/${payment.idPayment}" var="deleteUrl" /> 
+                    <spring:url value="/userpayroll/payrollpayments/showEdit/${payment.idPayment}" var="updateUrl" />
 
 
 <!--                    <button class="btn btn-info" onclick="location.href = '${contractUrl}'">View</button>
@@ -55,7 +55,7 @@
                     <button class="btn btn-danger" onclick="location.href = '${deleteUrl}'">Delete</button>-->
                     
                     
-                     <td><button class="bi bi-eye-fill" onclick="location.href = '${contractUrl}'"></button></td>
+                     <td><button class="bi bi-eye-fill" onclick="location.href = '${paymentUrl}'"></button></td>
             <td><button class="bi bi-pencil" style="color: cornflowerblue"onclick="location.href = '${updateUrl}'" ></button></td>
             <td><button class="bi bi-trash3" style="color: #d43f3a"onclick="location.href = '${deleteUrl}'"></button></td>
             </tr>

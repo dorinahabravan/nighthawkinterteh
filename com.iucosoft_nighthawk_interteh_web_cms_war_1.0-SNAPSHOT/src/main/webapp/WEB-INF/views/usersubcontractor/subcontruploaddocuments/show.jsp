@@ -22,7 +22,7 @@
        
         <div class="row">
 		<label class="col-sm-2">No. Document</label>
-		<div class="col-sm-10">${filedocument.documentId}</div>
+		<div class="col-sm-10">${filedocument.fileDocumentId}</div>
 	</div>
 
 	<div class="row">

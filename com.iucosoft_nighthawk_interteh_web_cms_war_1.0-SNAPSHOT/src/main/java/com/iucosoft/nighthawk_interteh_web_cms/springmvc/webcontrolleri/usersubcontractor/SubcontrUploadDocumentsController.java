@@ -71,8 +71,8 @@ public class SubcontrUploadDocumentsController {
       /**
      * Show an Portofolio
      */
-    @RequestMapping(value = "/showView/{documentId}", method = RequestMethod.GET)
-    String showView(@PathVariable("documentId") int documentId, Model model) {
+    @RequestMapping(value = "/showView/{fileDocumentId}", method = RequestMethod.GET)
+    String showView(@PathVariable("fileDocumentId") int documentId, Model model) {
         logger.debug("showView() documentId: {}", documentId);
 
         Filedocument filedocument = fileDocumentService.findById(documentId);
@@ -103,7 +103,7 @@ public class SubcontrUploadDocumentsController {
         } else {
 
             redirectAttributes.addFlashAttribute("css", "success");
-            if (filedocumentDTO.getDocumentId() == null) {
+            if (filedocumentDTO.getFileDocumentId() == null) {
                 redirectAttributes.addFlashAttribute("msg", "Document  added successfully!");
             } else {
                 redirectAttributes.addFlashAttribute("msg", "Document updated successfully!");
@@ -131,9 +131,9 @@ public class SubcontrUploadDocumentsController {
     /**
      * showEdit Buton cu numele Update in sens de arata pentru a fi editat
      */
-    @RequestMapping(value = "/showEdit/{documentId}", method = RequestMethod.GET)
-    String showEdit(@PathVariable("documentId") int documentId, Model model) {
-        Filedocument filedocument = fileDocumentService.findById(documentId);
+    @RequestMapping(value = "/showEdit/{fileDocumentId}", method = RequestMethod.GET)
+    String showEdit(@PathVariable("fileDocumentId") int fileDocumentId, Model model) {
+        Filedocument filedocument = fileDocumentService.findById(fileDocumentId);
         if (filedocument == null) {
             model.addAttribute("css", "danger");
             model.addAttribute("msg", "Document not found");
@@ -152,12 +152,12 @@ public class SubcontrUploadDocumentsController {
      * Delete Portofolio
      *
      */
-    @RequestMapping(value = "/delete/{documentId}", method = RequestMethod.GET)
-    public String delete(@PathVariable("documentId") int documentId, final RedirectAttributes redirectAttributes) {
+    @RequestMapping(value = "/delete/{fileDocumentId}", method = RequestMethod.GET)
+    public String delete(@PathVariable("fileDocumentId") int fileDocumentId, final RedirectAttributes redirectAttributes) {
 
-        logger.debug("delete() : {}", documentId);
+        logger.debug("delete() : {}", fileDocumentId);
 
-        fileDocumentService.delete(documentId);
+        fileDocumentService.delete(fileDocumentId);
 
         redirectAttributes.addFlashAttribute("css", "success");
         redirectAttributes.addFlashAttribute("msg", "Document is deleted!");

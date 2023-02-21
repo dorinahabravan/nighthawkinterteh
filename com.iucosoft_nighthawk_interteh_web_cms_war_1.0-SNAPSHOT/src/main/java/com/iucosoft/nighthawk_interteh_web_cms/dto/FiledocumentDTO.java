@@ -15,13 +15,13 @@ import java.util.Set;
  */
 public class FiledocumentDTO  implements Serializable{
     
-    private Integer documentId;
+    private Integer fileDocumentId;
      private Account account;
      private String fileName;
      private String fileExtenstion;
      private String documentContent;
 //     private Date lastTimeModified;
-     private Set<Filecontent> filecontents = new HashSet<Filecontent>(0);
+//     private Set<Filecontent> filecontents = new HashSet<Filecontent>(0);
      
      
      
@@ -31,13 +31,15 @@ public class FiledocumentDTO  implements Serializable{
     public FiledocumentDTO() {
     }
 
-    public Integer getDocumentId() {
-        return documentId;
+    public Integer getFileDocumentId() {
+        return fileDocumentId;
     }
 
-    public void setDocumentId(Integer documentId) {
-        this.documentId = documentId;
+    public void setFileDocumentId(Integer fileDocumentId) {
+        this.fileDocumentId = fileDocumentId;
     }
+
+   
 
     public Account getAccount() {
         return account;
@@ -79,18 +81,18 @@ public class FiledocumentDTO  implements Serializable{
 //        this.lastTimeModified = lastTimeModified;
 //    }
 
-    public Set<Filecontent> getFilecontents() {
-        return filecontents;
-    }
-
-    public void setFilecontents(Set<Filecontent> filecontents) {
-        this.filecontents = filecontents;
-    }
+//    public Set<Filecontent> getFilecontents() {
+//        return filecontents;
+//    }
+//
+//    public void setFilecontents(Set<Filecontent> filecontents) {
+//        this.filecontents = filecontents;
+//    }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.documentId);
+        hash = 29 * hash + Objects.hashCode(this.fileDocumentId);
         hash = 29 * hash + Objects.hashCode(this.fileName);
         return hash;
     }
@@ -110,7 +112,7 @@ public class FiledocumentDTO  implements Serializable{
         if (!Objects.equals(this.fileName, other.fileName)) {
             return false;
         }
-        if (!Objects.equals(this.documentId, other.documentId)) {
+        if (!Objects.equals(this.fileDocumentId, other.fileDocumentId)) {
             return false;
         }
         return true;
@@ -118,8 +120,12 @@ public class FiledocumentDTO  implements Serializable{
 
     @Override
     public String toString() {
-        return "FiledocumentDTO{" + "documentId=" + documentId + ", account=" + account + ", fileName=" + fileName + ", fileExtenstion=" + fileExtenstion + ", documentContent=" + documentContent + ", filecontents=" + filecontents + '}';
+        return "FiledocumentDTO{" + "fileDocumentId=" + fileDocumentId + ", account=" + account + ", fileName=" + fileName + ", fileExtenstion=" + fileExtenstion + ", documentContent=" + documentContent + '}';
     }
+
+    
+
+ 
 
  
 

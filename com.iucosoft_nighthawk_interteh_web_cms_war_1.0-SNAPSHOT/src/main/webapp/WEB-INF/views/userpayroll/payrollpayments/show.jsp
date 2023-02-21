@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<label class="col-sm-2">Contract</label>
-		<div class="col-sm-10">${paymentDTO.contract}</div>
+		<div class="col-sm-10">${paymentDTO.contract.idContract}</div>
 	</div>
         
 	<div class="row">

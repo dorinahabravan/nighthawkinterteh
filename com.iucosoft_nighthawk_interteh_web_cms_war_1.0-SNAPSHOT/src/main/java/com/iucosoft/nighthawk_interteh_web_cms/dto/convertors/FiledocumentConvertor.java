@@ -18,12 +18,12 @@ public class FiledocumentConvertor {
         Filedocument filedocument = new Filedocument();
 
         
-    filedocument.setDocumentId(filedocumentDTO.getDocumentId());
+    filedocument.setFileDocumentId(filedocumentDTO.getFileDocumentId());
         filedocument.setAccount(filedocumentDTO.getAccount());
         filedocument.setFileName(filedocumentDTO.getFileName());
         filedocument.setFileExtenstion(filedocumentDTO.getFileExtenstion());
         filedocument.setDocumentContent(filedocumentDTO.getDocumentContent());
-        filedocument.setFilecontents(filedocumentDTO.getFilecontents());
+//        filedocument.setFilecontents(filedocumentDTO.getFilecontents());
        
       
 
@@ -35,12 +35,12 @@ public class FiledocumentConvertor {
         FiledocumentDTO filedocumentDTO = new FiledocumentDTO();
    
         
-       filedocumentDTO.setDocumentId(filedocument.getDocumentId());
+       filedocumentDTO.setFileDocumentId(filedocument.getFileDocumentId());
         filedocumentDTO.setAccount(filedocument.getAccount());
         filedocumentDTO.setFileName(filedocument.getFileName());
         filedocumentDTO.setFileExtenstion(filedocument.getFileExtenstion());
         filedocumentDTO.setDocumentContent(filedocument.getDocumentContent());
-                filedocumentDTO.setFilecontents(filedocument.getFilecontents());
+//                filedocumentDTO.setFilecontents(filedocument.getFilecontents());
 
        
         

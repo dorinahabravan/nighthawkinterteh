@@ -269,10 +269,8 @@
     <definition name="usersubcontractor.subcontruploaddocuments.list.def" extends="usersubcontractor.base.definition">
         <put-attribute name="title" value=" Documents List Page" />
         <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/submenu.jsp" />
-        <put-attribute name="body" value="/WEB-INF/views//usersubcontractor/subcontruploaddocuments/list.jsp" />
-        
-   
-    </definition>
+        <put-attribute name="body" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/list.jsp" />
+       </definition>
     <definition name="usersubcontractor.subcontruploaddocuments.showView.def" extends="usersubcontractor.base.definition">
         <put-attribute name="title" value=" Documents View Page" />
         <put-attribute name="submenu" value="/WEB-INF/views/usersubcontractor/subcontruploaddocuments/submenu.jsp" />

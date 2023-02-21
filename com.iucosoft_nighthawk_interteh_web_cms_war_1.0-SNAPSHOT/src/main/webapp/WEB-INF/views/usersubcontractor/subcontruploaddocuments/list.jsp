@@ -15,22 +15,20 @@
             <th>Account</th>
             <th>File Extenstion</th>
             <th>Document Content</th>
-            
             <td>View</td>
             <td style="color: cornflowerblue">Edit</td>
             <td style="color: crimson">Delete</td>
         </tr>
-
     </thead>
 
 
     <c:forEach var="filedocument" items="${filedocumentDTOList}">
         <tr>
 
-            <td>${filedocument.documentId}
+            <td>${filedocument.fileDocumentId}
             </td>
             <td>${filedocument.fileName}</td>
-            <td>${filedocument.account}</td>
+            <td>${filedocument.account.idAccount}</td>
             <td>${filedocument.fileExtenstion}</td>
             <td>${filedocument.documentContent}</td>
 
@@ -39,9 +37,9 @@
 
 
 
-            <spring:url value="/usersubcontractor/subcontruploaddocuments/showView/${filedocument.documentId}" var="filedocumentUrl" />
-            <spring:url value="/usersubcontractor/subcontruploaddocuments/delete/${filedocument.documentId}" var="deleteUrl" /> 
-            <spring:url value="/usersubcontractor/subcontruploaddocuments/showEdit/${filedocument.documentId}" var="updateUrl" />
+            <spring:url value="/usersubcontractor/subcontruploaddocuments/showView/${filedocument.fileDocumentId}" var="filedocumentUrl" />
+            <spring:url value="/usersubcontractor/subcontruploaddocuments/delete/${filedocument.fileDocumentId}" var="deleteUrl" /> 
+            <spring:url value="/usersubcontractor/subcontruploaddocuments/showEdit/${filedocument.fileDocumentId}" var="updateUrl" />
 
 
 
