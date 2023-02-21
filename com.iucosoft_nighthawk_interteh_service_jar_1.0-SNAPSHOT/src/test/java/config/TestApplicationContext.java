@@ -187,7 +187,7 @@ public class TestApplicationContext {
     @Scope("prototype")
     public Filedocument filedocument(Account account) {
         Filedocument filedocument = new Filedocument();
-        filedocument.setDocumentId(1);
+        filedocument.setFileDocumentId(1);
         filedocument.setFileName("document");
         filedocument.setFileExtenstion("txt");
         filedocument.setAccount(account);

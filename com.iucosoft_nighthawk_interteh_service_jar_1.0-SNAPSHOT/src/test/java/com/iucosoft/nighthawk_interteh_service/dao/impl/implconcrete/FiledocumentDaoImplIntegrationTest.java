@@ -35,12 +35,12 @@ public class FiledocumentDaoImplIntegrationTest extends IntegrationTestBase{
     @After
     public void tearDown() {
         
-        this.fileDocumentDao.delete(filedocument.getDocumentId());
+        this.fileDocumentDao.delete(filedocument.getFileDocumentId());
     }
 
     @Test
     public void testSomeMethod() {
-        Filedocument filedocumentDB = this.fileDocumentDao.findById(this.filedocument.getDocumentId());
+        Filedocument filedocumentDB = this.fileDocumentDao.findById(this.filedocument.getFileDocumentId());
         Assert.assertEquals(this.filedocument,  filedocumentDB);
      
     }
