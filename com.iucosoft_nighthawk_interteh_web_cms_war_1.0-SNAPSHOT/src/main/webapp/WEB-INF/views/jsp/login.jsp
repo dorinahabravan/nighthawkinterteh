@@ -1,13 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 16-Mar-2022, 19:52:24
-    Author     : Dorina
-
-
---%>
-
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
@@ -15,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 
@@ -29,10 +20,13 @@
 
         </h1>
 
+
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus></br>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

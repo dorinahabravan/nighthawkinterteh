@@ -35,7 +35,7 @@ public class PaymentConvertor {
         paymentDTO.setPaymentDate(payment.getPaymentDate());
         paymentDTO.setPaymentBill(payment.getPaymentBill());
         paymentDTO.setPaymentType(payment.getPaymentType());
-        paymentDTO.setPaymentDescription(paymentDTO.getPaymentDescription());
+        paymentDTO.setPaymentDescription(payment.getPaymentDescription());
         
         return paymentDTO;
     }

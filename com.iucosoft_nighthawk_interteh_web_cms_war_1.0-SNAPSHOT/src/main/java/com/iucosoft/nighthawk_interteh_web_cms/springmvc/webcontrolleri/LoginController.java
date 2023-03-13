@@ -37,6 +37,8 @@ public class LoginController {
     @Qualifier("usernameValidator")
     UsernameValidator usernameValidator;
 
+ 
+    
     @RequestMapping(value = "/showlogin", method = RequestMethod.GET)
     ModelAndView showLogin() {
 
@@ -77,7 +79,7 @@ public class LoginController {
                 case ("payroll"):
                     return "userpayroll.home.def";
 
-            }
+        }
 
               /*
             Redirectionarea userului pe paginile corespunzatoare daca este valid iar daca nu merge inapoi la pagina showlogin.def
@@ -108,3 +110,6 @@ public class LoginController {
         return mv;
     }
 }
+
+
+
