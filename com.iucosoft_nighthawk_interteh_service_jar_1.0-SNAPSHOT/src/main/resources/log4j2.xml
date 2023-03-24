@@ -28,10 +28,10 @@
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="ROLL"/>
         </Root>
-        <Logger name="ga.rugal" level="TRACE" additivity="false">
+<!--        <Logger name="ga.rugal" level="TRACE" additivity="false">
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="ROLL"/>
-        </Logger>
+        </Logger>-->
         <Logger name="config" level="INFO" additivity="false">
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="ROLL"/>
