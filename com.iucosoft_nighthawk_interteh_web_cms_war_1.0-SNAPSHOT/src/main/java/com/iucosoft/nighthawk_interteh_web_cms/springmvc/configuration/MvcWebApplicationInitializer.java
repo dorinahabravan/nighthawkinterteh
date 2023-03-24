@@ -1,8 +1,13 @@
 package com.iucosoft.nighthawk_interteh_web_cms.springmvc.configuration;
 
+//import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ *
+ * @author Dorina
+ */
 @Configuration
 public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -15,13 +20,13 @@ public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispat
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
-      	
+
 //        return new Class[]{SecurityConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { MyWebApplicationConfig.class};
+        return new Class[]{MyWebApplicationConfig.class};
 //        return null;
     }
 
@@ -31,27 +36,3 @@ public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispat
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

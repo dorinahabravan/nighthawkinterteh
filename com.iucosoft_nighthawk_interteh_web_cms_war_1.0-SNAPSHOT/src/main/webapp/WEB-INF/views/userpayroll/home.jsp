@@ -1,8 +1,4 @@
-<%-- 
-    Document   : home
-    Created on : 01-Feb-2022, 17:57:59
-    Author     : Dorina
---%>
+
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,13 +7,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 
-<h3>Welcome Payroll</h3>
+<!--<h3>Welcome Payroll</h3>-->
 
 
+<h3> Hello ${pageContext.request.userPrincipal.name}, </h3>  
+<sec:authorize access="hasRole('PAYROLL')">  
 
-<a href="<c:url value='/logout' />" class="btn btn-default btn-lg active" role="button" aria-pressed="true">Log out</a>
+</sec:authorize>  
+<a href="<c:url value='/logout' />" class="btn btn-default btn-lg active" role="button" aria-pressed="true">
+          
+     <sec:csrfInput/> 
+    <span>Log out </span></a>
 
 

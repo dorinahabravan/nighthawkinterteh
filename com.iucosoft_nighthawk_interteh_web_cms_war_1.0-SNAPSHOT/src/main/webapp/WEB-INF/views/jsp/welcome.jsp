@@ -1,11 +1,3 @@
-<%-- 
-    Document   : welcome
-    Created on : 24-Feb-2022, 00:41:25
-    Author     : Dorina
---%>
-
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="false"%>

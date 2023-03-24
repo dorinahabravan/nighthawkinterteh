@@ -14,7 +14,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * too time wastage.<BR/>
  * any class that extends this class could have the capability to test without web server deployment
  * <p>
- * @author Rugal Bernstein
+
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes =

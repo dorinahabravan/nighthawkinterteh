@@ -7,8 +7,15 @@ import com.iucosoft.nighthawk_interteh_web_cms.dto.validator.PasswordValidator;
 import com.iucosoft.nighthawk_interteh_web_cms.dto.validator.UsernameValidator;
 
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import static org.apache.avalon.framework.container.ContainerUtil.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -50,8 +57,9 @@ public class LoginController {
 //    Login si logout
 //    Metoda login in depdendenta de reusita authentificarii si a rolului ne redirectioneaza: admin(pagina principala din cms pentru admin), user, inapoi in login cu error
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    String login(@ModelAttribute("user") @Validated NWUser user, BindingResult result, Map model) {
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+   String login(@ModelAttribute("user") @Validated NWUser user, BindingResult result, Map model) {
 
         try {
             
@@ -67,21 +75,22 @@ public class LoginController {
             
              /*
             Redirectionarea userului pe paginile corespunzatoare
-            */
-            switch (user.getUsername()) {
+//            */
+//            switch (user.getUsername()) {
+//
+//                case ("admin"):
+//                    return "admin.home.def";
+//
+//                case ("subcontractor"):
+//                    return "usersubcontractor.home.def";
+//
+//                case ("payroll"):
+//                    return "userpayroll.home.def";
 
-                case ("admin"):
-                    return "admin.home.def";
+//        }
 
-                case ("subcontractor"):
-                    return "usersubcontractor.home.def";
 
-                case ("payroll"):
-                    return "userpayroll.home.def";
-
-        }
-
-              /*
+   /*
             Redirectionarea userului pe paginile corespunzatoare daca este valid iar daca nu merge inapoi la pagina showlogin.def
             */
             int count = 0;
@@ -102,13 +111,23 @@ public class LoginController {
         return "user";
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    ModelAndView logout() {
-
-        ModelAndView mv = new ModelAndView("showlogin.def");
-
-        return mv;
-    }
+//    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+//    ModelAndView logout() {
+//
+//        ModelAndView mv = new ModelAndView("showlogin.def");
+//
+//        return mv;
+//    }
+    
+    
+      @RequestMapping(value="/logout", method=RequestMethod.GET)  
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {  
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();  
+        if (auth != null){      
+           new SecurityContextLogoutHandler().logout(request, response, auth);  
+        }  
+         return "redirect:/";  
+     }  
 }
 
 

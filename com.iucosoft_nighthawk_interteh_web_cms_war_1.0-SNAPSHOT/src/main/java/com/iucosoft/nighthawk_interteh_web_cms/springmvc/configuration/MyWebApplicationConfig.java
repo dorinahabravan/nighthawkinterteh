@@ -4,9 +4,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.Ordered;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -15,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
@@ -26,8 +30,8 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
  */
 @Configuration
 @EnableWebMvc
+@EnableWebMvcSecurity
 @ComponentScan(basePackages = {"com.iucosoft"})
-//@Import(value = {SecurityConfig.class })
 
 public class MyWebApplicationConfig implements WebMvcConfigurer {
 
@@ -41,14 +45,17 @@ public class MyWebApplicationConfig implements WebMvcConfigurer {
 
         return tilesConfigurer;
     }
-//@Bean(name = "viewResolver")
-//    public InternalResourceViewResolver getViewResolver() {
-//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-//        viewResolver.setPrefix("/WEB-INF/views/");
-//        viewResolver.setSuffix(".jsp");
-//        return viewResolver;
-//    }
-//    
+    
+    @Bean  
+    public InternalResourceViewResolver viewResolver() {  
+        InternalResourceViewResolver viewResolver  
+                          = new InternalResourceViewResolver();  
+        viewResolver.setViewClass(JstlView.class);  
+        viewResolver.setPrefix("/WEB-INF/views/");  
+        viewResolver.setSuffix(".jsp");  
+        return viewResolver;  
+    }  
+    
 //    @Override
 //    public void addViewControllers(ViewControllerRegistry registry) {
 //        registry.addViewController("/login").setViewName("login.def");
@@ -61,11 +68,7 @@ public class MyWebApplicationConfig implements WebMvcConfigurer {
         registry.viewResolver(viewResolver);
     }
 
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/static/**")
-//          .addResourceLocations("/static/");
-//    }
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
